@@ -5,8 +5,8 @@ import './style.css';
 export default function User(){
     const [users,setUsers] = useState([]);
     useEffect(()=>{
-        api.get('users').then(response =>{
-            setUsers(response.data);
+        api.get('users').then(Response =>{
+            setUsers(Response.data);
         })
     },[])
 
@@ -24,9 +24,13 @@ export default function User(){
                         <p>{user.idade}</p>
                         <strong>Empresa</strong>
                         <p>{user.empresa}</p>
+
+                        <div className="actions">
+                            <button className="button" type="button">Deletar</button>
+                            <button className="button" type="button">Acessar</button>
+                        </div>
                     </li>
                 ))}
-
             </ul>
         </div>
     );
